@@ -1,0 +1,20 @@
+{
+  "name": "build-server",
+  "version": "1.0.0",
+  "description": "The build server for shri",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "shri",
+    "build",
+    "server"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1"
+  }
+}
