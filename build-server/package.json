@@ -1,16 +1,12 @@
 {
   "name": "build-server",
   "version": "1.0.0",
-  "description": "The build server for shri",
+  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
-  "keywords": [
-    "shri",
-    "build",
-    "server"
-  ],
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {

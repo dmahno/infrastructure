@@ -1,11 +1,11 @@
 const express = require('express');
 const { router } = require('./router');
 const helpers = require('./utils/heleprs');
-const { bsControllers } = require('./controllers');
+const { controllersBS } = require('./controllers');
 
 const app = express();
 
-// Функции промежуточной обработки (middleware)
+// middleware functions
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header(
@@ -16,8 +16,6 @@ app.use((req, res, next) => {
 });
 app.use(express.json());
 app.use(router);
-
-// Общий обработчик ошибок - пока не используется, ошибки обрабатываются индивидуально
 app.use((err, req, res, next) => {
   console.error(`Server error: ${err.message}`);
   res.status(500).json({
@@ -26,11 +24,9 @@ app.use((err, req, res, next) => {
   next();
 });
 
-// Первичные запросы за билд-листом и настройками репозитория
-// Без этих данных билдить невозможно, поэтому
-// запросы будут повторяться, пока не получат настройки и НЕ пустой список билдов)
+// Previous requests to build listst
 
-bsControllers.registerAgent();
+controllersBS.registerAgent();
 
 const port = helpers.getConfig('port');
 app.listen(port, (err) => {

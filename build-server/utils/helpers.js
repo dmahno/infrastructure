@@ -1,7 +1,5 @@
-// const util = require('util');
 const path = require('path');
 const fs = require('fs');
-
 const rootPath = path.resolve(__dirname, '../');
 
 const getConfig = (key) => {

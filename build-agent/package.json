@@ -1,20 +1,17 @@
 {
   "name": "build-agent",
   "version": "1.0.0",
-  "description": "The build agent for shri",
+  "description": "build agent folder",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
-  "keywords": [
-    "shri",
-    "build",
-    "server"
-  ],
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "rimraf": "^3.0.2"
   }
 }

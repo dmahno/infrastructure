@@ -1,5 +1,5 @@
-const dbControllers = require('./dbControllers');
-const agentControllers = require('./agentControllers');
-const bsControllers = require('./bsControllers');
+const controllersDB = require('./controllersDB');
+const controllersAgent = require('./controllersAgent');
+const controllersBS = require('./controllersBS');
 
-module.exports = { dbControllers, agentControllers, bsControllers };
+module.exports = { controllersDB, controllersAgent, controllersBS };

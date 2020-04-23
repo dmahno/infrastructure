@@ -1,11 +1,10 @@
 const express = require('express');
 const { router } = require('./router');
-const { dbControllers } = require('./controllers');
+const storage = require('./storage');
 const helpers = require('./utils/helpers');
-
 const app = express();
 
-// Функции промежуточной обработки (middleware)
+// middleware functions
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header(
@@ -16,8 +15,6 @@ app.use((req, res, next) => {
 });
 app.use(express.json());
 app.use(router);
-
-// Общий обработчик ошибок - пока не используется, ошибки обрабатываются индивидуально
 app.use((err, req, res, next) => {
   console.error(`Server error: ${err.message}`);
   res.status(500).json({
@@ -26,14 +23,10 @@ app.use((err, req, res, next) => {
   next();
 });
 
-// Первичные запросы за билд-листом и настройками репозитория
-// Без этих данных билдить невозможно, поэтому
-// запросы будут повторяться, пока не получат настройки и НЕ пустой список билдов)
-dbControllers.getSettings();
-dbControllers.getBuildsList();
-
 const port = helpers.getConfig('port');
-app.listen(port, (err) => {
+app.listen(port, async (err) => {
   if (err) console.log(`Server didn't launch because of error: ${err}`);
   else console.log(`Server successfully launched on the port: ${port}`);
+
+  await storage.getInitialData();
 });
