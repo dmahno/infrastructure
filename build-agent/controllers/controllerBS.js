@@ -1,6 +1,6 @@
 const { registerAgent, sendBuildResults } = require('../api');
 
-// if there is no responce from build-server we will keep on asking with short and after with long intervals we try to
+// if there is no responce from build-server we will keep on asking with short and after that we will try to ask with long intervals
 
 let currentApiErrors = 0; // current errors
 const maxApiErrors = 2; // max errros
